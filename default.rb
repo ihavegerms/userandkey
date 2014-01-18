@@ -32,5 +32,8 @@ ssh_users.each do |id|
 end
 
 file "/home/someuser/.ssh/authorized_keys" do
-        content key_list.join("\n")
+    mode 0600
+    owner "someuser"
+    group "someuser"
+    content key_list.join("\n")
 end
